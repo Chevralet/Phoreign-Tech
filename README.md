@@ -4,7 +4,7 @@
 Phoreign Tech is a small React front-end project demonstrating modern React concepts, 
 including **props, state, routing, reusable components, and modular utilities**. 
 It fetches products from a mock API (FakeStore) and customizes them with a branded utility 
- **`mapPhoreignProducts(products)`.**
+
 ---
 
 ## Key Features
