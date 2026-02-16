@@ -53,7 +53,7 @@ export default function Home() {
 
 // Bootstrap containers
   return (
-    <Container className="container text-center pt-10">
+    <Container className="container text-center pt-5">
 
 {/* Header */}
       <h1 className="display-5 mb-3">Welcome to Phoreign Tech</h1>

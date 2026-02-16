@@ -13,10 +13,10 @@ import { Container, Form, Button, Alert } from "react-bootstrap";
 export default function AddProduct() {
 
 // Form state for user input
-  const [form, setForm] = useState({ title: "", price: "", description: "", category: "", image: "" });
+  const [form, setForm] = useState({ title: "", price: "", description: "", image: "" });
 
 // Display success or error messages
-  const [success, setSuccess] = useState("");
+  const [status, setStatus] = useState({ type: "", message: "" });
 
 // Updates input changes
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,18 +28,29 @@ export default function AddProduct() {
     e.preventDefault();
 
     try {
+      const payload = {
+        ...form,
+        price: Number(form.price),
+      };
+
 // Post data to Api endpoint
-      await axios.post("https://fakestoreapi.com/products", form);
+      await axios.post("https://fakestoreapi.com/products", payload);
 
 // Shows success message (doesn’t save it)
-      setSuccess("Product created (FakeStore returns success but won't persist).");
+      setStatus({
+        type: "success",
+        message: "Product created (FakeStore returns success but won't persist).",
+      });
 
 // Reset after submission
-      setForm({ title: "", price: "", description: "", category: "", image: "" });
+      setForm({ title: "", price: "", description: "", image: "" });
 
 // Show error on failure
     } catch {
-      setSuccess("Failed to create product (network error).");
+      setStatus({
+        type: "danger",
+        message: "Failed to create product (network error).",
+      });
     }
   };
 
@@ -49,7 +60,7 @@ export default function AddProduct() {
       <h2 className="mb-4">Add Product</h2>
 
       {/* Show msg in green alert box */}
-      {success && <Alert variant="success">{success}</Alert>}
+      {status.message && <Alert variant={status.type}>{status.message}</Alert>}
 
       {/* Product input form */}
       <Form onSubmit={handleSubmit}>

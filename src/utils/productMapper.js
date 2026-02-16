@@ -1,4 +1,4 @@
-// Change API item(s) into "Phoreign" branded products
+// Change APi items into "Phoreign" branded products
 export function mapPhoreignProducts(products) {
   return products.map((p) => {
 
@@ -73,7 +73,7 @@ export function mapPhoreignProducts(products) {
 // Custom Defaults
       default:
         item.brand = "Phoreign";
-        item.title = `Protype #${p.id}`;
+        item.title = `Prototype #${p.id}`;
 
 // Use original description if available else use Generic 
         item.description = item.description || "Exclusive gear from Phoreign Labs.";

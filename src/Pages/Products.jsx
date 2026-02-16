@@ -40,7 +40,7 @@ export default function Products() {
   }, []);
 
 // Show spinner while loading
-  if (!products) return <div className="text-center mt-20"><Spinner animation="border" /></div>;
+  if (!products) return <div className="text-center mt-5"><Spinner animation="border" /></div>;
 
 // Responsive Product Grid
   return (
