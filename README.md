@@ -1,54 +1,116 @@
-# Phoreign Tech - React E-Commerce Demo
+Phoreign Tech — React E-Commerce Demo
 
-## Overview
-Phoreign Tech is a small React front-end project demonstrating modern React concepts, 
-including **props, state, routing, reusable components, and modular utilities**. 
-It fetches products from a mock API (FakeStore) and customizes them with a branded utility 
+A modern React storefront demonstrating clean architecture, reusable components, dynamic routing, and API integration using a mock commerce backend.
 
----
+Built to showcase production-ready React fundamentals and scalable frontend structure.
 
-## Key Features
+Project Highlights
 
-### 1. Pages & Routing
-- **Home**: Highlights featured products in a carousel-style section.
-- **Products**: Lists all products using reusable cards.
-- **Product Details**: Displays full product information and allows edit/delete (mock).
-- **Add Product**: Form to create new products (mock API, not persisted).
+Dynamic product catalog powered by FakeStoreAPI
 
-### 2. Reusable Components
-- **ProductCard**: Displays a single product; used on Home and Products page.
-- **Navbar**: Responsive, reusable navigation component.
+Rebranding layer using a custom product mapping utility
 
-### 3. State & Interactivity
-- Uses `useState` to manage form input, featured product rotation, and product list.
-- Uses `useEffect` to fetch data and handle carousel rotation.
+Full CRUD flow (mock API)
 
-### 4. Modular Utilities
-- `mapPhoreignProducts(products)`: Converts API data into branded products.
-  - Example: Renames, rebrands, and adjusts price/description.
-  - Keeps original data for default products.
+Dynamic routing with React Router
 
-### 5. Styling
-- **CSS Variables**: `--bg`, `--card-bg`, `--text` for consistent styling.
-- **Neumorphic Cards**: `.phoreign-card` with hover effects.
-- **Responsive Container**: `.container` adapts to different screen sizes.
-- **Vignette Overlay**: Fades edges on scroll for a polished look.
+Controlled forms with validation patterns
 
----
+Reusable component architecture
 
-## How It Demonstrates React Concepts
+Responsive UI with Bootstrap 5
 
-| Concept       | Example                                    | Why It's Good                                   |
-|-------------  |--------------------------------------------|-------------------------------------------------|
-| Props         | `ProductCard` receives `product`           | Components are reusable and flexible            |
-| State         | `useState` for form, featured index        | UI updates dynamically based on user interaction|
-| Routing       | `react-router-dom` `Routes` & `Route`      | Multiple pages with clean navigation            |
-| Modularity    | `mapPhoreignProducts` utility              | Logic is isolated and reusable                  |
-| CSS Variables | `--bg`, `--text`, `--card-bg`              | Easily switch themes and maintain consistency   |
+Clean separation of concerns (Pages / Components / Utils)
 
----
+Note: FakeStoreAPI is a mock API. Create, update, and delete actions return success responses but do not persist after refresh.
 
-## Next Steps
-- Add **Dark Mode toggle** (future feature)
-- Add Backkend persistance
+Tech Stack
 
+React 18 (Vite)
+
+React Router DOM
+
+Axios
+
+React Bootstrap + Bootstrap 5
+
+CSS Variables (scalable theming system)
+
+FakeStoreAPI
+
+Architecture Overview
+src/
+ ├── components/   → Reusable UI (Navbar, ProductCard)
+ ├── pages/        → Route-level logic + data fetching
+ ├── utils/        → Data transformation (productMapper)
+ ├── App.jsx       → Route configuration
+ └── main.jsx      → App entry point
+
+Design Decisions
+
+Product mapping utility decouples API structure from UI logic
+
+Pages handle data fetching; components remain presentation-focused
+
+Dynamic routes support scalable product detail and edit flows
+
+CSS variables enable easy future theming
+
+Core Features
+Product Catalog
+
+Fetches products from external API
+
+Responsive grid layout
+
+Reusable ProductCard component
+
+Product Details
+
+Dynamic route (/products/:id)
+
+Edit + Delete functionality
+
+Mock API integration with user feedback
+
+Add / Edit Product
+
+Controlled forms using React state
+
+Pre-filled edit form via data fetch
+
+Mock POST and PUT requests
+
+Home Page
+
+Auto-rotating featured product spotlight
+
+Demonstrates interval cleanup with useEffect
+
+What This Demonstrates
+
+Strong understanding of React state and lifecycle
+
+REST API consumption with Axios
+
+Clean component abstraction
+
+Dynamic routing patterns
+
+Controlled form handling
+
+Separation of business logic from UI
+
+Professional project structure suitable for scaling
+
+Potential Extensions
+
+Persistent backend (Node + Express + Database)
+
+Authentication & protected routes
+
+Shopping cart state management
+
+Filtering & pagination
+
+Deployment pipeline (Vercel / Netlify)git status
